@@ -13,6 +13,7 @@ if (localPropsFile.exists()) {
 }
 
 android {
+    namespace "com.trading.alert"
     compileSdk 34
 
     defaultConfig {
