@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1117">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:text="📈 TradingView Alert Monitor"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:text="Monitors your Google Sheet for new TradingView alerts"
+            android:textSize="12sp"
+            android:textColor="#8B949E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Sheet ID -->
+        <TextView
+            android:text="Google Sheet ID:"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etSheetId"
+            android:hint="Paste your Sheet ID here"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#444"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:textSize="13sp"/>
+
+        <!-- API Key -->
+        <TextView
+            android:text="Google Sheets API Key:"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etApiKey"
+            android:hint="Paste your API key here"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#444"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textPassword"
+            android:textSize="13sp"/>
+
+        <!-- Sheet Tab Name -->
+        <TextView
+            android:text="Sheet Tab Name:"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etSheetName"
+            android:hint="Sheet1"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#444"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:textSize="13sp"/>
+
+        <!-- Poll Interval -->
+        <TextView
+            android:text="Poll Interval (seconds):"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
+        <EditText
+            android:id="@+id/etPollInterval"
+            android:hint="5"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#444"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:inputType="number"
+            android:textSize="13sp"/>
+
+        <!-- Start/Stop Button -->
+        <Button
+            android:id="@+id/btnToggle"
+            android:text="Start Monitoring"
+            android:backgroundTint="#238636"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:text="⛔ Not Running"
+            android:textColor="#F0A500"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#21262D"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Alert Log Title -->
+        <TextView
+            android:text="📋 Alert Log:"
+            android:textColor="#8B949E"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Alert Log Content -->
+        <TextView
+            android:id="@+id/tvLog"
+            android:text="No alerts yet..."
+            android:textColor="#C9D1D9"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:background="#161B22"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"/>
+
+    </LinearLayout>
+</ScrollView>
