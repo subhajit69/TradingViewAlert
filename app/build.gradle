@@ -1,0 +1,63 @@
+import java.util.Properties
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+// Load local.properties for secrets
+def localProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.trading.alert"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        // Inject secrets into BuildConfig
+        // In GitHub Actions these come from repository secrets
+        // Locally they come from local.properties
+        buildConfigField "String", "SHEETS_API_KEY",
+            "\"${localProps.getProperty('SHEETS_API_KEY', System.getenv('SHEETS_API_KEY') ?: '')}\""
+        buildConfigField "String", "SHEET_ID",
+            "\"${localProps.getProperty('SHEET_ID', System.getenv('SHEET_ID') ?: '')}\""
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+}
